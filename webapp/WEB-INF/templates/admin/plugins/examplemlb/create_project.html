@@ -1,0 +1,19 @@
+<#include "manageproject_tabs.html" />
+<@tabs2 tab="project" />
+<@box>
+	<@boxHeader title='#i18n{examplemlb.create_project.title}' />
+	<@boxBody>
+    <@tform name='create_project' action='jsp/admin/plugins/examplemlb/ManageProjects.jsp'>
+
+        <@messages errors=errors />
+        <@input type="hidden" id="id" name="id"/>
+        <@input type="hidden" value="${token}" name="token" />
+
+		<@formGroup labelFor='name' labelKey='#i18n{examplemlb.modify_project.labelName}' mandatory=true>
+          	<@input type='text' id='name' name='name'  maxlength=50 value='${project.name!\'\'}' tabIndex='0' />
+		</@formGroup>
+				
+		<@actionButtons button1Name="action_createProject" button2Name="view_manageProject"/>
+    </@tform>
+	</@boxBody>
+</@box>

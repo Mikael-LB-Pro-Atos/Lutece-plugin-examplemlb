@@ -1,0 +1,24 @@
+<#include "project_tabs.html" />
+<@tabs2 tab="project" />
+
+<@box>
+	<@boxHeader title='#i18n{examplemlb.modify_project.title}' />
+	<@boxBody>
+		<@tform class='form-horizontal' action='jsp/site/Portal.jsp'>
+				<@messages errors=errors />
+				<@input type="hidden" id="id" name="id" value="${project.id}"/>
+				<@input type="hidden" value="${token}" name="token" />
+				<@input type="hidden" name="page" value="project" /> 
+
+				<@formGroup labelFor='name' labelKey='#i18n{examplemlb.modify_project.labelName}' mandatory=true>
+          			<@input type='text' id='name' name='name'  maxlength=50 value='${project.name!\'\'}' tabIndex='0' />
+				</@formGroup>
+
+				<@formGroup>
+         			<@button name='action_modifyProject' type='submit' tabIndex='1' title='#i18n{portal.util.labelModify}' buttonIcon='plus' />
+          			<@button name='view_manageProjects' type='submit' title='#i18n{portal.util.labelCancel}' buttonIcon='close' color='btn-secondary' cancel=true />
+				</@formGroup>
+		</@tform>
+	</@boxBody>
+</@box>
+
